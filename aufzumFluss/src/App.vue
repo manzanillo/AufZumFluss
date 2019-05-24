@@ -4,7 +4,6 @@
       <center>
         <div class="dragShovel" v-for="(shovel, index) in shovels" :key="index">
           <img
-            id="shovel"
             src="./assets/schaufel.png"
             v-on:drag="handleMove"
             v-on:drop="endHandler"
@@ -35,6 +34,7 @@
             <img src="./assets/croco.png" v-if="type==0">
             <img src="./assets/schmutz.png" v-if="type==1">
             <img src="./assets/fels.png" v-if="type==2">
+            <div class="empty" v-if="type==3"/>
             <div class="empty" v-if="type==4"/>
           </th>
         </tr>
