@@ -2,24 +2,18 @@
   <div id="app">
     <div id="left-panel" style="float: left;">
       <center>
-        <div class="dragShovel">
+        <div class="dragShovel" v-for="(shovel, index) in shovels" :key="index">
           <img
-            id="shovel1"
+            id="shovel"
             src="./assets/schaufel.png"
-            v-on:dragstart="drag"
-            v-on:drag="test"
-            v-on:drop="drop"
+            v-on:drag="handleMove"
+            v-on:drop="endHandler"
+            v-touch:moved="handleMove"
+            v-touch:moving="handleMoving"
+            v-touch:end="endHandler"
+            v-if="shovel"
           >
         </div>
-        <br>
-        <div class="dragShovel">
-          <img id="shovel2" src="./assets/schaufel.png" v-on:dragstart="drag">
-        </div>
-        <br>
-        <div class="dragShovel">
-          <img id="shovel3" src="./assets/schaufel.png" v-on:dragstart="drag">
-        </div>
-        <br>
         <br>
         <br>
         <img id="controller-button" src="./assets/play.png">
@@ -36,87 +30,12 @@
     <div id="playground" v-on:drop="drop">
       <!-- ondrop="drop(event)" ondragover="allowDrop(event) -->
       <table>
-        <tr>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <div class="empty"/>
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <div class="empty"/>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <div class="empty"/>
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-        </tr>
-        <tr>
-          <th id="c_3">
-            <div class="empty"/>
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <div class="empty"/>
-          </th>
-          <th></th>
-        </tr>
-        <tr>
-          <th id="c_2">
-            <div class="empty"/>
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-        </tr>
-        <tr>
-          <th id="c_1">
-            <img id="croco" src="./assets/croco.png">
-          </th>
-          <th>
-            <img src="./assets/schmutz.png">
-          </th>
-          <th>
-            <div class="empty"/>
-          </th>
-          <th>
-            <img src="./assets/fels.png">
-          </th>
-          <th>
-            <img src="./assets/fels.png">
+        <tr v-for="(row, index) in playground" :key="index">
+          <th v-for="(type, index) in row" :key="index">
+            <img src="./assets/croco.png" v-if="type==0">
+            <img src="./assets/schmutz.png" v-if="type==1">
+            <img src="./assets/fels.png" v-if="type==2">
+            <div class="empty" v-if="type==4"/>
           </th>
         </tr>
       </table>
@@ -125,12 +44,38 @@
 </template>
 
 <script>
+// TODO: Auslagern in eigene Datei, damit auch im Template die Konstanten verwendet werden können
+const CROCO = 0;
+const STONE1 = 1;
+const STONE2 = 2;
+const GOAL = 3;
+const EMPTY = 4;
+
 export default {
   name: "app",
-  data: {},
+  data() {
+    return {
+      shovels: [true, true, true],
+      playground: [
+        [STONE1, EMPTY, STONE2, STONE1, GOAL],
+        [STONE1, STONE2, STONE1, EMPTY, STONE2],
+        [EMPTY, STONE1, STONE2, EMPTY, EMPTY],
+        [EMPTY, STONE1, STONE2, STONE1, STONE1],
+        [CROCO, STONE1, EMPTY, STONE2, STONE2]
+      ]
+    };
+  },
   methods: {
+    handleMove: function(ev) {
+      console.log("handle drag");
+    },
+    handleMoving: function(ev) {
+      console.log("handleMoving --> redraw");
+    },
+    endHandler: function(ev) {
+      console.log("handle drop");
+    },
     drag: function(ev) {
-      console.log("hi");
       ev.dataTransfer.setData("text", ev.target.id);
     },
     allowDrop: function(ev) {
@@ -236,6 +181,7 @@ table {
   border: 2px solid transparent;
   width: 75px;
   height: 75px;
+  padding: 1em;
 
   &:hover {
     border: 2px solid #666260;
