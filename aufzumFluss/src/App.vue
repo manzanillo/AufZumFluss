@@ -30,7 +30,7 @@
       <!-- ondrop="drop(event)" ondragover="allowDrop(event) -->
       <table>
         <tr v-for="(row, index) in playground" :key="index">
-          <th v-for="(type, index) in row" :key="index">
+          <th v-for="(type, index) in row" :key="index" ref="fieldslot">
             <img src="./assets/croco.png" v-if="type==0">
             <img src="./assets/schmutz.png" v-if="type==1">
             <img src="./assets/fels.png" v-if="type==2">
