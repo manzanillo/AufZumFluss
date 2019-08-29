@@ -4,7 +4,7 @@ import Vue2TouchEvents from 'vue2-touch-events'
  
 Vue.use(Vue2TouchEvents)
 
-new Vue({
+var vm=new Vue({
   el: '#app',
   render: h => h(App)
 })
