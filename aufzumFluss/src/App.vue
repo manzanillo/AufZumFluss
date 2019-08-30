@@ -15,7 +15,7 @@
             ontouchmove="window.vm.handleTouchMoving(event)"
 			ontouchend="window.vm.touchEnd(event)"
 			
-          ><br /><br />
+          ><br />
         </div></div>
 		<div id="dragShovel2"><div id="dragShovel" v-for="(shovel, index) in shovels2" :key="index">
           <img
@@ -26,14 +26,14 @@
             ontouchmove="window.vm.handleTouchMoving(event)"
 			ontouchend="window.vm.touchEnd(event)"
             v-if="shovel"
-          ><br /><br />
-        </div><div class="spaceholderShovel" /><br /><br /></div></div>
-        <br>
-        <br>
+          ><br />
+        </div><br /><div class="spaceholderShovel"></div><br /></div></div>
         <img id="controller-button" src="./assets/play.png" v-on:click="playHandler">
-        <img id="controller-button" src="./assets/stop.png" v-on:click="reset" style="margin-left: 10%">
-        <br>
-        <br>
+        <img id="controller-button" src="./assets/stop.png" v-on:click="reset" style="margin-left: 2%">
+		<br>
+		<img id="controller-button" src="./assets/levelDown.png" v-on:click="levelDownHandler">
+		<img id="level" src="./assets/level.png" style="margin-left: 5%">
+        <img id="controller-button" src="./assets/levelUp.png" v-on:click="levelUpHandler" style="margin-left: 5%">
         <br>
       </center>
     </div>
@@ -71,6 +71,97 @@
 			</tr>
 		  </table>
 		</div>
+		<div id="playground2">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[2][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground3">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[3][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground4">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[4][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground5">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[5][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground6">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[6][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground7">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[7][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
+		<div id="playground8">
+		  <table>
+			<tr v-for="(row, index) in leveldaten[8][0]" :key="index">
+			  <th v-for="(type, index) in row" :key="index" ref="fieldslot">
+				<img src="./assets/croco.png" v-if="type==0">
+				<img src="./assets/schmutz.png" ondrop="window.vm.handleDrop(event)" ondragover="event.preventDefault();" v-if="type==1">
+				<img src="./assets/fels.png" v-if="type==2">
+				<img src="./assets/ziel.png" v-if="type==3">
+				<div class="empty" v-if="type==4"/>
+			  </th>
+			</tr>
+		  </table>
+		</div>
 	</div>
 	<div id="movingshovel" style="width:75px;height:75px;position:absolute;background:url('./dist/schaufel.png');display:none;" ></div>
   </div>
@@ -86,132 +177,173 @@ const EMPTY = 4;
 export default {
   name: "app",
   mounted() {
-	window.vm = this;
+	window.vm = this; // Variable fuer Vue-Instanz setzen, um auch in Event-Handlern darauf zugreifen zu koennen
 	this.loadLevel(0);
   },
   data() {
     return {
 	
-	  /* LEVELDATEN: Dimensionen -> 1: Level (10), 2: Infos [Playground [Row[Column]] | [shovels, groesse, start, ziel]] */
+	  // LEVELDATEN: Dimensionen -> 1: Level (0-8), 2: Infos [Playground [Row[Column]] | [shovels, groesse, start, ziel]] 
 		leveldaten: [[[
+		[STONE1, EMPTY, STONE1, GOAL],
+        [STONE1, STONE1, EMPTY, STONE1],
+        [EMPTY, STONE1, EMPTY, EMPTY],
+        [CROCO, STONE1, STONE1, STONE1],
+      ],[[true,true],4,12,3]],[[
+		[STONE1, STONE1, GOAL, EMPTY],
+        [STONE1, EMPTY, STONE2, STONE1],
+        [EMPTY, STONE2, STONE2, EMPTY],
+        [CROCO, EMPTY, STONE1, EMPTY],
+	  ],[[true,true],4,12,2]],[[
+		[STONE2, STONE1, STONE1, GOAL],
+        [STONE1, EMPTY, STONE2, STONE2],
+        [EMPTY, STONE1, EMPTY, STONE1],
+        [STONE1, CROCO, STONE1, EMPTY],
+      ],[[true,true,true],4,13,3]],[[
+		[STONE1, EMPTY, EMPTY, GOAL],
+        [EMPTY, STONE1, STONE2, STONE1],
+        [STONE2, EMPTY, STONE1, STONE1],
+        [STONE1, STONE1, CROCO, STONE2],
+      ],[[true,true],4,14,3]],[[
+		[EMPTY, EMPTY, EMPTY, STONE1, GOAL],
+        [STONE2, EMPTY, STONE1, STONE2, EMPTY],
+        [EMPTY, EMPTY, STONE2, EMPTY, STONE2],
+        [STONE1, STONE1, EMPTY, EMPTY, STONE2],
+        [CROCO, EMPTY, EMPTY, STONE1, STONE1]
+      ],[[true,true],5,20,4]],[[
+		[STONE2, STONE1, EMPTY, STONE1, GOAL],
+        [EMPTY, EMPTY, STONE2, STONE2, STONE1],
+        [STONE1, STONE1, EMPTY, STONE2, STONE1],
+        [EMPTY, STONE2, STONE1, EMPTY, STONE1],
+        [CROCO, EMPTY, STONE1, EMPTY, STONE2]
+      ],[[true,true,true],5,20,4]],[[
+		[STONE2, STONE2, STONE1, EMPTY, GOAL],
+        [STONE1, STONE1, EMPTY, STONE1, STONE1],
+        [EMPTY, EMPTY, STONE2, STONE2, STONE1],
+        [STONE1, STONE1, STONE1, EMPTY, EMPTY],
+        [CROCO, EMPTY, STONE2, STONE1, STONE2]
+      ],[[true,true,true],5,20,4]],[[
 		[STONE1, EMPTY, STONE2, STONE1, GOAL],
         [STONE1, STONE2, STONE1, EMPTY, STONE2],
         [EMPTY, STONE1, STONE1, EMPTY, EMPTY],
         [EMPTY, STONE1, STONE2, STONE1, STONE1],
         [CROCO, STONE1, EMPTY, STONE2, STONE2]
       ],[[true,true,true],5,20,4]],[[
-        [EMPTY, EMPTY, EMPTY, STONE1, GOAL],
-        [STONE2, EMPTY, STONE1, STONE2, EMPTY],
-        [EMPTY, EMPTY, STONE2, EMPTY, STONE2],
-        [STONE1, STONE1, EMPTY, EMPTY, STONE2],
-        [CROCO, EMPTY, EMPTY, STONE1, STONE1]
-      ],[[true,true],5,20,4]]],
-	  
-		shovels3: [true,true,true],
-		shovels2: [true,true],
-	
-	  level: 1,
-      shovels: [true, true, true],
-      playground: [
-        [STONE1, EMPTY, STONE2, STONE1, GOAL],
-        [STONE1, STONE2, STONE1, EMPTY, STONE2],
+        [STONE1, STONE1, GOAL, STONE1, EMPTY],
+        [EMPTY, EMPTY, STONE2, STONE2, STONE1],
+        [STONE2, EMPTY, STONE1, EMPTY, STONE1],
         [EMPTY, STONE1, STONE2, EMPTY, EMPTY],
-        [EMPTY, STONE1, STONE2, STONE1, STONE1],
-        [CROCO, STONE1, EMPTY, STONE2, STONE2]
-      ],
-	  groesse: 5,
+        [STONE2, STONE2, CROCO, STONE1, STONE1]
+      ],[[true,true,true],5,22,2]]],
+	  
+	  shovels3: [true,true,true],
+	  shovels2: [true,true],
+	
+	  // aktuelle Levelinfos
+	  level: 0,
+      shovels: [true, true],
+      playground: [],
+	  groesse: 4,
 	  
 	  // fuer Wegesuche
-	  belegt: [1,0,1,1,0,1,1,1,0,1,0,1,1,0,0,0,1,1,1,1,0,1,0,1,1], // 0: leer, 1: belegt 
-	  adjliste: [
+	  belegt: [1,0,1,0,1,1,0,1,0,1,0,0,0,1,1,1], // 0: leer, 1: belegt 
+	  adjliste5: [
 		[1,5],[0,2,6],[1,3,7],[2,4,8],[3,9],
 		[0,6,10],[1,5,7,11],[2,6,8,12],[3,7,9,13],[4,8,14],
 		[5,11,,15],[6,10,12,16],[7,11,13,17],[8,12,14,18],[9,13,19],
 		[10,16,20],[11,15,17,21],[12,16,18,22],[13,17,19,23],[14,18,24],
 		[15,21],[16,20,22],[17,21,23],[18,22,24],[19,23]
 	  ],
-	  start: 20,
-	  ziel: 4,
+	  adjliste4: [
+		[1,4],[0,2,5],[1,3,6],[2,7],
+		[0,5,8],[1,4,6,9],[2,5,7,10],[3,6,11],
+		[4,9,12],[5,8,10,13],[6,9,11,14],[7,10,15],
+		[8,13],[9,12,14],[10,13,15],[11,14]
+	  ],
+	  start: 12,
+	  ziel: 3,
 	  weg: [],
 	  
+	  // fuer Drag and Drop
 	  draggedShovel: -1,
       touch: null
     };
   },
   methods: {
   
-  
-  
-  dragOrTouchStart:function(e) {
-  window.vm.draggedShovel = 0;
-  var elem = e.target.parentElement;
-  while(elem.previousElementSibling != null){
-    elem = elem.previousElementSibling;
-	window.vm.draggedShovel++;
-  }
-},
-
-handleTouchMoving:function(e) {
-  window.vm.touch = e.targetTouches[0];
-  e.target.style.display='none';
-  document.getElementById('movingshovel').style.display='block';
-  document.getElementById('movingshovel').style.left=window.vm.touch.screenX-38+"px";
-  document.getElementById('movingshovel').style.top=window.vm.touch.screenY-38+"px";
-},
-
- dragEnd: function(e) {
-  window.vm.draggedShovel = -1;
-},
-
- touchEnd: function(e){
-  var shovelNo = window.vm.draggedShovel;
-  e.target.style.display='';
-  window.vm.draggedShovel = -1;
-  document.getElementById('movingshovel').style.display='none';
-  var targetElem = document.elementFromPoint(window.vm.touch.clientX,window.vm.touch.clientY);
-  window.vm.shovelDroppedOverObj(shovelNo, targetElem);
-},
- handleDrop:function(e){
-  var shovelNo = window.vm.draggedShovel;
-  window.vm.draggedShovel = -1;
-  var targetElem = e.target;
-  e.preventDefault();
-  window.vm.shovelDroppedOverObj(shovelNo, targetElem);
-},
- shovelDroppedOverObj:function(shovelNo, targetElem){
-	if(shovelNo < 0) return;
-	
-	//is it a removable obj?
-	if(targetElem.tagName.toUpperCase() == "IMG"){
-		targetElem = targetElem.parentElement;
-	}
-	if(targetElem.tagName.toUpperCase() != "TH" && targetElem.tagName.toUpperCase() != "TD") return;
-	
-	var colum = 0;
-	var elem = targetElem;
-	while(elem.previousElementSibling != null){
+	dragOrTouchStart: function(e){
+		window.vm.draggedShovel = 0;
+		var elem = e.target.parentElement;
+		while(elem.previousElementSibling != null){
 		elem = elem.previousElementSibling;
-		colum++;
-	}
-	var row = 0;
-	elem = elem.parentElement;
-	while(elem.previousElementSibling != null){
-		elem = elem.previousElementSibling;
-		row++;
-	}
-	if(elem.parentElement.parentElement != document.getElementById('playground') && elem.parentElement.parentElement.parentElement != document.getElementById('playground')) return;
+		window.vm.draggedShovel++;
+	  }
+	},
 
-	if (window.vm.playground[row][colum] != STONE1) return;
-	window.vm.playground[row][colum] = EMPTY;
-	var indexBelegt = row*5+colum;
-	window.vm.belegt[indexBelegt] = 0;
-	targetElem.innerHTML = "";
-	document.getElementById("left-panel").children[0].children[0].children[shovelNo].children[0].style.display="none";
-},
-  
-  
-  
-  
+	handleTouchMoving: function(e){
+		window.vm.touch = e.targetTouches[0];
+		e.target.style.display='none';
+		document.getElementById('movingshovel').style.display='block';
+		document.getElementById('movingshovel').style.left=window.vm.touch.screenX-38+"px";
+		document.getElementById('movingshovel').style.top=window.vm.touch.screenY-38+"px";
+	},
+
+	dragEnd: function(e){
+	  window.vm.draggedShovel = -1;
+	},
+
+	touchEnd: function(e){
+		var shovelNo = window.vm.draggedShovel;
+		e.target.style.display='';
+		window.vm.draggedShovel = -1;
+		document.getElementById('movingshovel').style.display='none';
+		var targetElem = document.elementFromPoint(window.vm.touch.clientX,window.vm.touch.clientY);
+		window.vm.shovelDroppedOverObj(shovelNo, targetElem);
+	},
+	
+	handleDrop: function(e){
+		var shovelNo = window.vm.draggedShovel;
+		window.vm.draggedShovel = -1;
+		var targetElem = e.target;
+		e.preventDefault();
+		window.vm.shovelDroppedOverObj(shovelNo, targetElem);
+	},
+	
+	shovelDroppedOverObj:function(shovelNo, targetElem){
+		if(shovelNo < 0) return;
+		
+		//is it a removable obj?
+		if(targetElem.tagName.toUpperCase() == "IMG"){
+			targetElem = targetElem.parentElement;
+		}
+		if(targetElem.tagName.toUpperCase() != "TH" && targetElem.tagName.toUpperCase() != "TD") return;
+		
+		var colum = 0;
+		var elem = targetElem;
+		while(elem.previousElementSibling != null){
+			elem = elem.previousElementSibling;
+			colum++;
+		}
+		var row = 0;
+		elem = elem.parentElement;
+		while(elem.previousElementSibling != null){
+			elem = elem.previousElementSibling;
+			row++;
+		}
+		if(elem.parentElement.parentElement != document.getElementById('playground') && elem.parentElement.parentElement.parentElement != document.getElementById('playground')) return;
+
+		if (window.vm.playground[row][colum] != STONE1) return;
+		window.vm.playground[row][colum] = EMPTY;
+		var indexBelegt;
+		if(window.vm.groesse == 4){
+			indexBelegt = row*4+colum;
+		}else{
+			indexBelegt = row*5+colum;
+		}
+		window.vm.belegt[indexBelegt] = 0;
+		targetElem.innerHTML = "";
+		document.getElementById("left-panel").children[0].children[0].children[shovelNo].children[0].style.display="none";
+	},
     
 	playHandler: function(ev) {
 		var geschafft = window.vm.wegeSuche();
@@ -221,11 +353,13 @@ handleTouchMoving:function(e) {
 			window.vm.laufen();
 		}
 	},
+	
 	targetReachedHandler: function(){
 		alert("Sieg!"); 
-		if(window.vm.level < 10){ //TODO: MaxLevel einsetzen
-			alert("Gewonnen!\nAuf zum nächsten Level.");
-			window.vm.loadLevel(window.vm.level++);
+		if(window.vm.level < 8){ // Level: 0-8
+			alert("Gewonnen!\nAuf zum nächsten Level!");
+			var levelNew = window.vm.level + 1;
+			window.vm.loadLevel(levelNew);
 		}else{
 			alert("Alle Level geschafft!");
 		}
@@ -234,27 +368,47 @@ handleTouchMoving:function(e) {
 		window.vm.loadLevel(window.vm.level);
 	},
 	
+	levelDownHandler: function(ev) {
+		if(window.vm.level > 0){
+			window.vm.loadLevel(window.vm.level-1);
+		}
+	},
+	
+	levelUpHandler: function(ev) {
+		if(window.vm.level < 8){
+			window.vm.loadLevel(window.vm.level+1);
+		}
+	},
+	
 	wegeSuche: function(){ 
 		//dijkstra algorithmus
-		var anzahl = window.vm.belegt.length;
-		var vorgaenger = new Array(anzahl);
+		var anzahl = window.vm.groesse;
+		var vorgaenger = new Array(anzahl*anzahl);
 		var distanz = [];
-		for(let i=0; i<anzahl; i++){
+		for(let i=0; i<anzahl*anzahl; i++){
 			distanz.push(1000);
 		}
 		distanz[window.vm.start] = 0;
 		var unbesucht = new Array();
 		unbesucht.push(window.vm.start);
 		var unbesuchtEingefuegt = new Array(anzahl);
-		for(let i=0; i<anzahl; i++){
+		for(let i=0; i<anzahl*anzahl; i++){
 			unbesuchtEingefuegt[i] = false;
 		}
 		unbesuchtEingefuegt[window.vm.start] = true;
 		
+		// richtige adjazenzliste auswaelen
+		var adjlis;
+		if(window.vm.groesse == 4){
+			adjlis = window.vm.adjliste4;
+		}else{
+			adjlis = window.vm.adjliste5;
+		}
+		
 		while(unbesucht.length != 0){
 			var min = window.vm.minimumArray(distanz,unbesucht);
 			unbesucht.splice(unbesucht.indexOf(min),1);
-			for(let c of window.vm.adjliste[min]){ // alle vier Felder um das aktuelle Feld
+			for(let c of adjlis[min]){ // alle vier Felder um das aktuelle Feld
 				// erreichbare Nachbarn in unbesucht einfuegen, wenn sie nicht darin sind und auch noch nicht waren
 				if(window.vm.belegt[c] == 0 && unbesucht.includes(c) == false && unbesuchtEingefuegt[c] == false){
 					unbesucht.push(c);
@@ -404,6 +558,7 @@ handleTouchMoving:function(e) {
 body {
   background:url(./assets/sumpf_hg.jpg) grey no-repeat;
   background-size: cover;
+  min-width:810px;
 }
 
 th,
@@ -428,7 +583,7 @@ table {
 
 .spaceholderShovel{
 	width: 75px;
-	height: 75px;
+	height: 74px;
 }
 
 #app {
@@ -472,6 +627,10 @@ table {
   &:hover {
     border: 2px solid #666260;
   }
+}
+
+#level {
+	border: 2px solid transparent;
 }
 
 #dragShovel {
